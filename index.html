@@ -27,11 +27,11 @@
         <header class="bolo-header">
             <div class="searchbar-and-button">
                 <input v-model="search"
-                @keyup.enter="startSearch"
+                @keyup.enter="itemSearchByTheUser"
                 class="searchbar" 
                 type="text" 
-                placeholder="Search">
-                <button @click="startSearch" class="searchbutton">
+                placeholder="search">
+                <button @click="itemSearchByTheUser" class="searchbutton">
                     Cerca!
                 </button>
             </div>
@@ -39,20 +39,68 @@
         <!-- App MAIN -->
         <main class="bolo-main">
             <div class="main-results-area">
-                <ul class="results-list">
-                    <li class="result-item">
-                        <div class="item-basic info">
-                            <h3 class="title">Titolo Opera:</h3>
-                            <h4 class="orig-title">Titolo Opera Originale:</h4>
-                            <p class="language">Lingua:</p>
-                        </div>
-                        <div class="star-votes">
-                            <span>Public impressions: </span>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                    </li>
-                </ul>
+                <!-- FILM -->
+                <!-- Imposto un v-if in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati -->
+                <section v-show="films.length > 0"
+                class="film-area">
+                    <h2>FILM FROM YOUR RESEARCH!</h2>
+                    <ul class="film-results-list">
+                        <!-- Looppo nell'array popolato dalla mia API sulla base dei caratteri digitati e poi inviati dall'utente -->
+                        <li v-for="film in films"
+                        class="film-result-item">
+                            <div class="film-basic-info">
+                                <h3>
+                                Titolo: {{ film.title }} 
+                                </h3>
+                                <h4>
+                                Titolo Originale: {{ film.original_title }}
+                                </h4>
+                                <p>
+                                Lingua Originale: {{ film.original_language }}
+                                </p>
+                            </div>
+                            <div>
+                                <span> Star rating: </span>
+                                <i  class="fas fa-star"
+                                    v-for="n in StarRating(film.vote_average)">
+                                </i>
+                                <i  class="far fa-star"
+                                    v-for="n in (5 - StarRating(film.vote_average))">
+                                </i>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+                <!-- TV SERIES -->
+                <!-- Imposto un v-if in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati -->
+                <section v-show="series.length > 0"
+                class="series-area">
+                    <h2>TV SERIES FROM YOUR RESEARCH!</h2>
+                    <ul class="series-results-list">
+                        <!-- Looppo nell'array popolato dalla mia API sulla base dei caratteri digitati e poi inviati dall'utente -->
+                        <li v-for="serie in series"
+                        class="series-result-item">
+                            <div class="series-basic-info">
+                                <h3>
+                                Nome: {{ serie.name }}
+                                </h3>
+                                <h4>
+                                Nome Originale: {{ serie.original_name }}
+                                </h4>
+                                <p>Lingua Originale: {{ serie.original_language }}</p>
+                            </div>
+                            <div>
+                                <span> Star rating: </span>
+                                <i  class="fas fa-star"
+                                    v-for="n in StarRating(serie.vote_average)">
+                                </i>
+                                <i  class="far fa-star"
+                                    v-for="n in (5 - StarRating(serie.vote_average))">
+                                </i>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
             </div>
         </main>
 

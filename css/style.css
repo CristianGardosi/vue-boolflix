@@ -19,17 +19,31 @@ body {
 }
 
 .main-results-area {
-    display: flex;
-    justify-content: center;
     text-align: center;
     margin-top: 50px;
     padding: 20px;
-    background: maroon;
 }
 
-.main-results-area .results-list .result-item {
+.film-area {
+    color: aquamarine;
+}
+
+.film-result-item,
+.series-result-item {
+    margin: 20px;
     list-style: none;
 }
+
+.film-basic-info h3,
+.series-basic-info h3 {
+    padding: 10px;
+}
+
+.series-area {
+    color: orange;
+}
+
+
 
 
 
