@@ -22,7 +22,7 @@ const boloflix = new Vue ({
             this.findFilms();
             this.findTvSeries();
           },
-        // FindFilms & FindTvSeries funzionano allo stesso modo: costruisco aiutandomi con i params la mia chiamata API, dopodichè, se questa va a buon fine, utilizzo lo spread operator perchè mi consente di creare ad ogni nuova richiesta un array che popola dinamicamente gli array Films & Series che ho inizializzato nei data.
+        // FindFilms & FindTvSeries funzionano allo stesso modo: costruisco aiutandomi con i params la mia chiamata API, dopodichè, se questa va a buon fine, fillo il mio array (films // series) con i dati ottenuti alla voce results dei data che è quella che contiene tutte le info che mi servirà printare a schermo
         findFilms() {
             if (this.search) {
                 axios.get('https://api.themoviedb.org/3/search/movie', {
@@ -32,7 +32,7 @@ const boloflix = new Vue ({
                     }
                 })
                     .then(result => {
-                        this.films = [...result.data.results];
+                        this.films = result.data.results
                         
                     })
                     .catch(error => {
@@ -49,8 +49,9 @@ const boloflix = new Vue ({
                         }
                     })
                 .then(result => {
-                    this.series = [...result.data.results];
+                    this.series = result.data.results
                 })
+
                 .catch(error => {
                     console.log(error);
                 });
