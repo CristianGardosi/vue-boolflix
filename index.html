@@ -26,10 +26,14 @@
         <!-- App HEADER -->
         <header class="bolo-header">
             <div class="searchbar-and-button">
-                <input class="searchbar" 
+                <input v-model="search"
+                @keyup.enter="startSearch"
+                class="searchbar" 
                 type="text" 
                 placeholder="Search">
-                <button class="searchbutton">Vai</button>
+                <button @click="startSearch" class="searchbutton">
+                    Cerca!
+                </button>
             </div>
         </header>
         <!-- App MAIN -->
