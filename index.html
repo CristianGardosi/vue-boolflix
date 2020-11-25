@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">   
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <!-- VUEJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <title>BOOLFLIX PROJECT</title>
+</head>
+
+<body>
+
+    <!-- Main app id container (VUE) -->
+    <div id="boloflix">
+        <!-- App HEADER -->
+        <header class="bolo-header">
+            <div class="searchbar-and-button">
+                <input class="searchbar" 
+                type="text" 
+                placeholder="Search">
+                <button class="searchbutton">Vai</button>
+            </div>
+        </header>
+        <!-- App MAIN -->
+        <main class="bolo-main">
+            <div class="main-results-area">
+                <ul class="results-list">
+                    <li class="result-item">
+                        <div class="item-basic info">
+                            <h3 class="title">Titolo Opera:</h3>
+                            <h4 class="orig-title">Titolo Opera Originale:</h4>
+                            <p class="language">Lingua:</p>
+                        </div>
+                        <div class="star-votes">
+                            <span>Public impressions: </span>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+    </div>
+
+
+
+    <!-- AXIOS -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js">
+    </script>
+    <!-- JS -->
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #212121;
+    color: #fff;
+}
+
+.searchbar-and-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 20px;
+    background: grey;
+}
+
+.main-results-area {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background: maroon;
+}
+
+.main-results-area .results-list .result-item {
+    list-style: none;
+}
+
+
+
+
