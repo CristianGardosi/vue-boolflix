@@ -13,9 +13,8 @@ body {
 .searchbar-and-button {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
     padding: 20px;
-    background: grey;
+    background: maroon;
 }
 
 .main-results-area {
@@ -26,6 +25,7 @@ body {
 
 .film-area {
     color: aquamarine;
+    margin-bottom: 100px;
 }
 
 .film-result-item,
