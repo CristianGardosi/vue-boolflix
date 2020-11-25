@@ -28,6 +28,12 @@ body {
     margin-bottom: 100px;
 }
 
+.film-area h2,
+.series-area h2 {
+    background: #fff;
+    color: maroon;
+}
+
 .film-result-item,
 .series-result-item {
     margin: 20px;

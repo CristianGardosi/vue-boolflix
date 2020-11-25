@@ -26,13 +26,15 @@
         <!-- App HEADER -->
         <header class="bolo-header">
             <div class="searchbar-and-button">
+                <!-- Bindo alla searchbar il data search con il v-model e la mia funzione di filtraggio degli items associandola al @keyup sul tasto di invio -->
                 <input v-model="search"
                 @keyup.enter="itemSearchByTheUser"
                 class="searchbar" 
                 type="text" 
-                placeholder="search">
+                placeholder="Cerca film o serie tv">
+                <!-- Bindo al @click sul button la mia funzione per il filtraggio degli items -->
                 <button @click="itemSearchByTheUser" class="searchbutton">
-                    Cerca!
+                    Vai
                 </button>
             </div>
         </header>
@@ -40,12 +42,12 @@
         <main class="bolo-main">
             <div class="main-results-area">
                 <!-- FILM -->
-                <!-- Imposto un v-if in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati -->
+                <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section v-show="films.length > 0"
                 class="film-area">
                     <h2>FILM FROM YOUR RESEARCH!</h2>
                     <ul class="film-results-list">
-                        <!-- Looppo nell'array popolato dalla mia API sulla base dei caratteri digitati e poi inviati dall'utente -->
+                        <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="film in films"
                         class="film-result-item">
                             <div class="film-basic-info">
@@ -76,12 +78,12 @@
                     </ul>
                 </section>
                 <!-- TV SERIES -->
-                <!-- Imposto un v-if in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati -->
+                <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section v-show="series.length > 0"
                 class="series-area">
                     <h2>TV SERIES FROM YOUR RESEARCH!</h2>
                     <ul class="series-results-list">
-                        <!-- Looppo nell'array popolato dalla mia API sulla base dei caratteri digitati e poi inviati dall'utente -->
+                        <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="serie in series"
                         class="series-result-item">
                             <div class="series-basic-info">
