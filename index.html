@@ -55,11 +55,15 @@
                                 <h4>
                                 Titolo Originale: {{ film.original_title }}
                                 </h4>
+                                <!-- Gestione lingua, inserisco img se il film è in lingua originale inglese o italiana -->
                                 <p>
-                                Lingua Originale: {{ film.original_language }}
+                                <span v-if="film.original_language === 'it'">Lingua: <img src="./img/it.png" alt="ita"></span>
+                                <span v-else-if="film.original_language === 'en'">Lingua: <img src="./img/en.png" alt="eng"></span>
+                                <span v-else>Lingua: {{film.original_language}}</span>
                                 </p>
                             </div>
                             <div>
+                                <!-- Gestione star rating -->
                                 <span> Star rating: </span>
                                 <i  class="fas fa-star"
                                     v-for="n in StarRating(film.vote_average)">
@@ -87,9 +91,15 @@
                                 <h4>
                                 Nome Originale: {{ serie.original_name }}
                                 </h4>
-                                <p>Lingua Originale: {{ serie.original_language }}</p>
+                                <!-- Gestione lingua, inserisco img se il film è in lingua originale inglese o italiana -->
+                                <p>
+                                <span v-if="serie.original_language === 'it'">Lingua: <img src="./img/it.png" alt="ita"></span>
+                                <span v-else-if="serie.original_language === 'en'">Lingua: <img src="./img/en.png" alt="eng"></span>
+                                <span v-else>Lingua: {{serie.original_language}}</span>
+                                </p>
                             </div>
                             <div>
+                                <!-- Gestione star rating -->
                                 <span> Star rating: </span>
                                 <i  class="fas fa-star"
                                     v-for="n in StarRating(serie.vote_average)">

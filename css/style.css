@@ -43,6 +43,12 @@ body {
     color: orange;
 }
 
+.film-basic-info p span img,
+.series-basic-info p span img
+ {
+    width: 20px;
+}
+
 
 
 
