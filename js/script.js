@@ -14,7 +14,9 @@ const boloflix = new Vue ({
         // Array FILM da popolare con i dati da API + filtrati dalla ricerca dell'utente
         films: [],
         // Array FILM da popolare con i dati da API + filtrati dalla ricerca dell'utente
-        series: []
+        series: [],
+        // Array di linguaggi per i quali è disponibile un'immagine rappresentante la bandiera
+        languageFlagsImg: ['it', 'en']
     },
     methods: {
         // Ricerca bindata con @keyUp al tasto invio e con il @click al button accanto alla barra di ricerca all'interno della quale inserisco i due metodi per cercare FILM e SERIE TV, in questo modo all'invio da parte dell'utente attraverso una delle due modalità a sua disposizione, grazie al lavoro delle due funzioni, visualizzo a schermo i risultati che matchano tra     RICHIESTA UTENTE       <--->        ELEMENTI NELL'ARRAY
@@ -31,11 +33,11 @@ const boloflix = new Vue ({
                         query: this.search,
                     }
                 })
-                    .then(result => {
-                        this.films = result.data.results
+                    .then( result => {
+                        this.films = result.data.results;
                         
                     })
-                    .catch(error => {
+                    .catch( error => {
                         console.log(error);
                     });
             }
@@ -48,11 +50,11 @@ const boloflix = new Vue ({
                             query: this.search
                         }
                     })
-                .then(result => {
-                    this.series = result.data.results
+                .then( result => {
+                    this.series = result.data.results;
                 })
 
-                .catch(error => {
+                .catch( error => {
                     console.log(error);
                 });
             }
@@ -61,10 +63,15 @@ const boloflix = new Vue ({
         StarRating(num) {
             return Math.ceil(num / 2);
         },
+        // Utility per capire se il linguaggio originale del film è uno di quelli di cui ho la bandierina img ed è quindi appartente all'array languageFlagsImg o meno
+        isAFlaggedLanguage(language){
+            return this.languageFlagsImg.includes(language) 
+        },
+
+        getFlag(language) {
+            return `./img/${language}.png`
+        }
     }
-
-
-
 
 
 

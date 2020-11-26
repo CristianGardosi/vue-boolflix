@@ -25,43 +25,68 @@
     <div id="boloflix">
         <!-- App HEADER -->
         <header class="bolo-header">
-            <div class="searchbar-and-button">
+            <div class="header-container">
+                <a href="https://fontmeme.com/netflix-font/">
+                    <img class="logo" src="https://fontmeme.com/permalink/201126/3caecef922339e25b759077c6c58ef91.png" alt="netflix-font" border="0">
+                </a>
+                <div class="search-area">
                 <!-- Bindo alla searchbar il data search con il v-model e la mia funzione di filtraggio degli items associandola al @keyup sul tasto di invio -->
-                <input v-model="search"
-                @keyup.enter="itemSearchByTheUser"
-                class="searchbar" 
-                type="text" 
-                placeholder="Cerca film o serie tv">
-                <!-- Bindo al @click sul button la mia funzione per il filtraggio degli items -->
-                <button @click="itemSearchByTheUser" class="searchbutton">
-                    Vai
-                </button>
+                    <input v-model="search"
+                    @keyup.enter="itemSearchByTheUser"
+                    class="searchbar" 
+                    type="text" 
+                    placeholder="Cerca film o serie tv">
+                    <img class="mini-tv" src="./img/tv.png" alt="">
+                </div>
             </div>
         </header>
         <!-- App MAIN -->
         <main class="bolo-main">
             <div class="main-results-area">
+                <div class="jumbotron">
+                    <div class="jumbo-text">
+                        <h1>I grandi classici</h1>
+                        <p>Rivivi i capolavori del passato con un'apposita selezione a te dedicata!</p>
+                        <button class="purple-button">Vai alla selezione</button>
+                    </div>
+                    <img class="jumbo-img" src="./img/pulp.png" alt="">
+                </div>
                 <!-- FILM -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section v-show="films.length > 0"
                 class="film-area">
-                    <h2>FILM FROM YOUR RESEARCH!</h2>
+                    <h2>FILM DALLA TUA RICERCA!</h2>
                     <ul class="film-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="film in films"
                         class="film-result-item">
                             <div class="film-basic-info">
+                                <div class="cover">
+                                    <img 
+                                        v-if="film.poster_path"
+                                        v-bind:src="`http://image.tmdb.org/t/p/w185/${film.poster_path}`" alt="poster find"
+                                    >
+                                    <img 
+                                        v-else
+                                        src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster not find"
+                                    >
+                                </div>
                                 <h3>
                                 Titolo: {{ film.title }} 
                                 </h3>
                                 <h4>
                                 Titolo Originale: {{ film.original_title }}
                                 </h4>
-                                <!-- Gestione lingua, inserisco img se il film è in lingua originale inglese o italiana -->
+                                <!-- Gestione lingua -->
                                 <p>
-                                <span v-if="film.original_language === 'it'">Lingua: <img src="./img/it.png" alt="ita"></span>
-                                <span v-else-if="film.original_language === 'en'">Lingua: <img src="./img/en.png" alt="eng"></span>
-                                <span v-else>Lingua: {{film.original_language}}</span>
+                                    <span>Lingua originale:</span>
+                                    <img v-if="isAFlaggedLanguage(film.original_language)" 
+                                    class="flag" 
+                                    v-bind:src="getFlag(film.original_language)" 
+                                    :alt="film.orginal_language">
+                                    <span v-else>
+                                        {{ film.original_language }}
+                                    </span>
                                 </p>
                             </div>
                             <div>
@@ -87,18 +112,32 @@
                         <li v-for="serie in series"
                         class="series-result-item">
                             <div class="series-basic-info">
+                                <div class="cover">
+                                    <img 
+                                        v-if="serie.poster_path"
+                                        v-bind:src="`http://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="poster find"
+                                    >
+                                    <img 
+                                        v-else
+                                        src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster not find"
+                                    >
+                                </div>
                                 <h3>
                                 Nome: {{ serie.name }}
                                 </h3>
                                 <h4>
                                 Nome Originale: {{ serie.original_name }}
                                 </h4>
-                                <!-- Gestione lingua, inserisco img se il film è in lingua originale inglese o italiana -->
-                                <p>
-                                <span v-if="serie.original_language === 'it'">Lingua: <img src="./img/it.png" alt="ita"></span>
-                                <span v-else-if="serie.original_language === 'en'">Lingua: <img src="./img/en.png" alt="eng"></span>
-                                <span v-else>Lingua: {{serie.original_language}}</span>
-                                </p>
+                                <!-- Gestione lingua -->
+                                <span>Lingua originale:</span>
+                                <img v-if="isAFlaggedLanguage(serie.original_language)" 
+                                class="flag" 
+                                v-bind:src="getFlag(serie.original_language)" 
+                                :alt="serie.orginal_language">
+                                <span v-else>
+                                    {{ serie.original_language }}
+                                </span>
+
                             </div>
                             <div>
                                 <!-- Gestione star rating -->
