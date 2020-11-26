@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: #212121;
+    background: radial-gradient(circle, rgba(62,62,62,1) 0%, rgba(0,0,0,1) 100%);
     color: #fff;
 }
 
@@ -33,7 +33,7 @@ body {
 .searchbar {
     position: relative;
     width: 100%;
-    height: 50px;
+    height: 7vh;
     font-size: 20px;
     padding: 0 20px;
     outline: none;
@@ -57,6 +57,28 @@ body {
     color: rgba(255,255,255, .4);
 }
 
+/* *INITIAL PAGE* */
+.purple-button-giant {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px 100px;
+    font-family: 'Lobster', sans-serif;
+    font-size: 50px;
+    background: rgba(79,12,78, .2);
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background, .2s;
+    cursor: pointer;
+}
+
+.purple-button-giant:hover {
+    background: #4f0c4e;
+}
+
 /* *MAIN CONTENT AREA* */
 /* Jumbotron */
 .jumbotron {
@@ -65,12 +87,12 @@ body {
 
 .jumbo-img {
     width: 100vw;
-    height: 45vh;
+    height: 50vh;
 }
 
 .jumbo-text {
     position: absolute;
-    top: 50px;
+    top: 70px;
     left: 30px;
 }
 
@@ -84,6 +106,7 @@ body {
     padding: 10px 20px;
     background: rgba(79,12,78, .6);
     color: #fff;
+    font-size: 16px;
     border: 1px solid #fff;
     border-radius: 5px;
     margin-top: 20px;
@@ -94,27 +117,55 @@ body {
 .purple-button:hover {
     background: #4f0c4e;
 }
-/* Film results area */
-.film-area {
-    margin-bottom: 100px;
-}
 
-.film-results-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
+
+/* Films and series results area */
 .film-area h2,
 .series-area h2 {
     font-size: 55px;
     margin: 50px;
 }
 
+.film-results-list,
+.series-results-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .film-result-item,
 .series-result-item {
-    margin: 20px;
+    flex-basis: 250px;
+    margin: 15px;
+    padding: 10px;
+    text-align: center;
     list-style: none;
+    background: radial-gradient(circle, rgba(79,12,78,1) 37%, rgba(0,0,0,1) 100%);
+}
+
+.film-basic-info h3,
+.film-basic-info h4,
+.film-basic-info p,
+.series-basic-info h3,
+.series-basic-info h4,
+.series-basic-info p {
+    margin: 10px;
+}
+
+.film-basic-info h4,
+.film-basic-info p,
+.series-basic-info h4,
+.series-basic-info p {
+    color: rgba(255,255,255,.6);
+}
+
+.poster-container {
+    min-height: 290px;
+}
+
+.alternative-poster {
+    width: 185px;
 }
 
 .film-basic-info h3,
@@ -122,12 +173,7 @@ body {
     padding: 10px;
 }
 
-.series-area {
-    color: orange;
-}
-
-.flag
- {
+.flag {
     width: 20px;
 }
 

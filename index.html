@@ -24,7 +24,7 @@
     <!-- Main app id container (VUE) -->
     <div id="boloflix">
         <!-- App HEADER -->
-        <header class="bolo-header">
+        <header class="header">
             <div class="header-container">
                 <a href="https://fontmeme.com/netflix-font/">
                     <img class="logo" src="https://fontmeme.com/permalink/201126/3caecef922339e25b759077c6c58ef91.png" alt="netflix-font" border="0">
@@ -41,8 +41,8 @@
             </div>
         </header>
         <!-- App MAIN -->
-        <main class="bolo-main">
-            <div class="main-results-area">
+        <main class="main">
+            <div v-if="films.length > 0 || series.length > 0" class="main-results-area">
                 <div class="jumbotron">
                     <div class="jumbo-text">
                         <h1>I grandi classici</h1>
@@ -53,26 +53,28 @@
                 </div>
                 <!-- FILM -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
-                <section v-show="films.length > 0"
-                class="film-area">
+                <section class="film-area">
                     <h2>FILM DALLA TUA RICERCA!</h2>
                     <ul class="film-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="film in films"
                         class="film-result-item">
                             <div class="film-basic-info">
-                                <div class="cover">
-                                    <img 
+                                <div class="poster-container">
+                                    <div class="cover">
+                                        <img 
                                         v-if="film.poster_path"
-                                        v-bind:src="`http://image.tmdb.org/t/p/w185/${film.poster_path}`" alt="poster find"
-                                    >
-                                    <img 
+                                        v-bind:src="`http://image.tmdb.org/t/p/w185/${film.poster_path}`" alt="poster found"
+                                        >
+                                        <img class="alternative-poster"
                                         v-else
-                                        src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster not find"
-                                    >
+                                        src="https://www.altavod.com/assets/images/poster-placeholder.png"  
+                                        alt="poster not found"
+                                        >
+                                    </div>
                                 </div>
                                 <h3>
-                                Titolo: {{ film.title }} 
+                                {{ film.title }} 
                                 </h3>
                                 <h4>
                                 Titolo Originale: {{ film.original_title }}
@@ -91,7 +93,6 @@
                             </div>
                             <div>
                                 <!-- Gestione star rating -->
-                                <span> Star rating: </span>
                                 <i  class="fas fa-star"
                                     v-for="n in StarRating(film.vote_average)">
                                 </i>
@@ -104,26 +105,27 @@
                 </section>
                 <!-- TV SERIES -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
-                <section v-show="series.length > 0"
-                class="series-area">
-                    <h2>TV SERIES FROM YOUR RESEARCH!</h2>
+                <section class="series-area">
+                    <h2>SERIE TV DALLA TUA RICERCA!</h2>
                     <ul class="series-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="serie in series"
                         class="series-result-item">
                             <div class="series-basic-info">
-                                <div class="cover">
-                                    <img 
+                                <div class="poster-container">
+                                    <div class="cover">
+                                        <img 
                                         v-if="serie.poster_path"
-                                        v-bind:src="`http://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt="poster find"
-                                    >
-                                    <img 
+                                        v-bind:src="`http://image.tmdb.org/t/p/w185/${serie.poster_path}`" alt="poster found"
+                                        >
+                                        <img class="alternative-poster"
                                         v-else
-                                        src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster not find"
-                                    >
+                                        src="https://www.altavod.com/assets/images/poster-placeholder.png" alt="poster not found"
+                                        >
+                                    </div>
                                 </div>
                                 <h3>
-                                Nome: {{ serie.name }}
+                                {{ serie.name }}
                                 </h3>
                                 <h4>
                                 Nome Originale: {{ serie.original_name }}
@@ -152,6 +154,11 @@
                         </li>
                     </ul>
                 </section>
+            </div>
+            <div v-else class="initial-page">
+                <button class="purple-button-giant">
+                    Iscriviti a purpleflix
+                </button>
             </div>
         </main>
 
