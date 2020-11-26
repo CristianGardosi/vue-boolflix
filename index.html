@@ -54,7 +54,11 @@
                 <!-- FILM -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section class="film-area">
-                    <h2 v-show="films.length > 0">FILM DALLA TUA RICERCA!</h2>
+                    <h2 v-show="films.length > 0">
+                        <span class="keyword-category">FILM</span> 
+                        DALLA TUA RICERCA 
+                        <i class="fas fa-arrow-down"></i>
+                    </h2>
                     <ul class="film-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="film in films"
@@ -100,13 +104,31 @@
                                     v-for="n in (5 - StarRating(film.vote_average))">
                                 </i>
                             </div>
+                            <!-- Gestione descrizione in overlay al passaggio sulla card col cursore -->
+                            <div class="item-overlay">
+                                <h4>
+                                    {{ film.overview }}
+                                </h4>
+                            </div>
                         </li>
                     </ul>
                 </section>
+                <div class="jumbotron2">
+                    <div class="jumbo2-text">
+                        <h1>I nuovi capolavori</h1>
+                        <p>Tutto il meglio delle nuove uscite a casa tua</p>
+                        <button class="purple-button">Vai alla selezione</button>
+                    </div>
+                    <img class="jumbo2-img" src="./img/new.png" alt="">
+                </div>
                 <!-- TV SERIES -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section class="series-area">
-                    <h2 v-show="series.length > 0">SERIE TV DALLA TUA RICERCA!</h2>
+                    <h2 v-show="series.length > 0">
+                        <span class="keyword-category">SERIE TV</span> 
+                        DALLA TUA RICERCA 
+                        <i class="fas fa-arrow-down"></i>
+                    </h2>
                     <ul class="series-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="serie in series"
@@ -152,6 +174,12 @@
                                     v-for="n in (5 - StarRating(serie.vote_average))">
                                 </i>
                             </div>
+                            <!-- Gestione descrizione in overlay al passaggio sulla card col cursore -->
+                            <div class="item-overlay">
+                                <h4>
+                                    {{ serie.overview }}
+                                </h4>
+                            </div>
                         </li>
                     </ul>
                 </section>
@@ -163,7 +191,6 @@
                 </button>
             </div>
         </main>
-
     </div> 
 
 
