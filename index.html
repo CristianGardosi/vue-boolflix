@@ -54,7 +54,7 @@
                 <!-- FILM -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section class="film-area">
-                    <h2>FILM DALLA TUA RICERCA!</h2>
+                    <h2 v-show="films.length > 0">FILM DALLA TUA RICERCA!</h2>
                     <ul class="film-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="film in films"
@@ -106,7 +106,7 @@
                 <!-- TV SERIES -->
                 <!-- Imposto un v-show in modo da mostrare la sezione solo se a fronte della ricerca dell'utente ho dei risultati che matchano nell'array -->
                 <section class="series-area">
-                    <h2>SERIE TV DALLA TUA RICERCA!</h2>
+                    <h2 v-show="series.length > 0">SERIE TV DALLA TUA RICERCA!</h2>
                     <ul class="series-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="serie in series"
@@ -131,15 +131,16 @@
                                 Nome Originale: {{ serie.original_name }}
                                 </h4>
                                 <!-- Gestione lingua -->
-                                <span>Lingua originale:</span>
-                                <img v-if="isAFlaggedLanguage(serie.original_language)" 
-                                class="flag" 
-                                v-bind:src="getFlag(serie.original_language)" 
-                                :alt="serie.orginal_language">
-                                <span v-else>
-                                    {{ serie.original_language }}
-                                </span>
-
+                                <p>
+                                    <span>Lingua originale:</span>
+                                    <img v-if="isAFlaggedLanguage(serie.original_language)" 
+                                    class="flag" 
+                                    v-bind:src="getFlag(serie.original_language)" 
+                                    :alt="serie.orginal_language">
+                                    <span v-else>
+                                        {{ serie.original_language }}
+                                    </span>
+                                </p>
                             </div>
                             <div>
                                 <!-- Gestione star rating -->
@@ -156,7 +157,7 @@
                 </section>
             </div>
             <div v-else class="initial-page">
-                <img src="./img/initial.png" alt="">
+                <img class="purple-locandine" src="./img/locandine.png" alt="">
                 <button class="purple-button-giant">
                     Iscriviti a purpleflix
                 </button>
