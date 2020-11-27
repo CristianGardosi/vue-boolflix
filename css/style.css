@@ -1,4 +1,5 @@
 /* !GENERAL STYLES */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -12,8 +13,10 @@ body {
     min-height: 100vh;
 }
 
+
 /* !LAYOUT */
-/* *HEADER* */
+
+/** HEADER **/
 .header-container {
     position: fixed;
     top: 0;
@@ -62,7 +65,7 @@ body {
     color: rgba(255,255,255, .4);
 }
 
-/* *INITIAL PAGE* */
+/** INITIAL PAGE **/
 .initial-page .purple-locandine {
     width: 1000px;
     position: absolute;
@@ -92,11 +95,10 @@ body {
     background: #4f0c4e;
 }
 
-/* *MAIN CONTENT AREA* */
-
-/* Jumbotrons (initial and final part of the main page) */
-
-
+/** MAIN CONTENT AREA **/
+/* Jumbotrons */
+/* .jumbotron ad inizio pagina */
+/* .jumbotron2 a fine pagina (footer) */
 .jumbotron,
 .jumbotron2 {
     position: relative;
@@ -166,9 +168,9 @@ body {
 
 /* Films and series results area */
 
-/* Gestione generale stili area  */
+/* Gestione generale stili aree  */
 .film-area,
-.series-area{
+.series-area {
     margin-bottom: 50px;
 }
 
@@ -191,7 +193,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
-/* Styling singola card */
+
+/* Styling singola card film/serie tv */
 .result-item {
     position: relative;
     flex-basis: 250px;
@@ -206,30 +209,6 @@ body {
 .result-item:hover {
     transform: scale(1.1);
 }
-
-.item-overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    background: radial-gradient(circle, rgba(79,12,78,.8) 37%, rgba(0,0,0,.8) 100%);
-    backdrop-filter: blur(5px);
-    opacity: 0;
-    transition: opacity .2s;
-    overflow: auto;
-    cursor: pointer;
-}
-
-.item-overlay:hover {
-    opacity: 1;
-}
-
-
 
 .poster-container {
     min-height: 290px;
@@ -255,7 +234,29 @@ body {
 }
 
 .flag {
-    width: 20px;
+    width: 25px;
+}
+/* Overlay al passaggio con il mouse su una card */
+.item-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background: radial-gradient(circle, rgba(79,12,78,.8) 37%, rgba(0,0,0,.8) 100%);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity .2s;
+    overflow: auto;
+    cursor: pointer;
+}
+
+.item-overlay:hover {
+    opacity: 1;
 }
 
 

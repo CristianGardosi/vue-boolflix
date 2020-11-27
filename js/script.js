@@ -23,7 +23,7 @@ const boloflix = new Vue ({
         itemSearchByTheUser() {
             this.findFilms();
             this.findTvSeries();
-          },
+        },
         // FindFilms & FindTvSeries funzionano allo stesso modo: costruisco aiutandomi con i params la mia chiamata API, dopodichè, se questa va a buon fine, fillo il mio array (films // series) con i dati ottenuti alla voce results dei data che è quella che contiene tutte le info che mi servirà printare a schermo
         findFilms() {
             if (this.search) {
@@ -76,5 +76,4 @@ const boloflix = new Vue ({
             return `./img/${language}.png`
         }
     }
-
 }); 
