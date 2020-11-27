@@ -15,13 +15,22 @@ body {
 
 /* *HEADER* */
 .header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
+    background: radial-gradient(circle, rgba(79,12,78,.7) 37%, rgba(0,0,0,.7) 100%);
+}
+
+.header-container:focus {
     background: radial-gradient(circle, rgba(79,12,78,1) 37%, rgba(0,0,0,1) 100%);
 }
-/* Logo */
+
 .logo {
     max-width: 150px;
 }
@@ -58,6 +67,10 @@ body {
 }
 
 /* *INITIAL PAGE* */
+.initial-page {
+    background: radial-gradient(circle, rgba(62,62,62,1) 0%, rgba(0,0,0,1) 100%);
+}
+
 .initial-page .purple-locandine {
     width: 1000px;
     position: absolute;
@@ -89,6 +102,10 @@ body {
 
 /* *MAIN CONTENT AREA* */
 /* Jumbotrons */
+.jumbotron{
+margin-top: 80px;
+}
+
 .jumbotron,
 .jumbotron2 {
     position: relative;
@@ -117,6 +134,23 @@ body {
     font-family: 'Lobster', sans-serif;
     font-size: 60px;
     margin-bottom: 10px;
+}
+
+.jumbotron2 .footer-links {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+}
+
+.jumbotron2 .footer-links a {
+    color: rgba(255,255,255,.7);
+    padding: 20px;
+    font-size: 45px;
+    transition: .2s;
+}
+
+.jumbotron2 .footer-links a:hover {
+    color: #fff;
 }
 
 .purple-button {
