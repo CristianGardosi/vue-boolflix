@@ -100,11 +100,16 @@ body {
     height: 60vh;
 }
 
-.jumbo-text,
-.jumbo2-text {
+.jumbo-text {
     position: absolute;
     top: 70px;
     left: 50px;
+}
+
+.jumbo2-text {
+    position: absolute;
+    bottom: 70px;
+    right: 50px;
 }
 
 .jumbo-text h1,
