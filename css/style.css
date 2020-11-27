@@ -21,11 +21,11 @@ body {
     padding: 20px 50px;
     background: radial-gradient(circle, rgba(79,12,78,1) 37%, rgba(0,0,0,1) 100%);
 }
-
+/* Logo */
 .logo {
     max-width: 150px;
 }
-
+/* Searchbar */
 .search-area {
     flex-basis: 40%;
 }
@@ -53,7 +53,7 @@ body {
     width: 40px;
     position: absolute;
     right: 70px;
-    top: 25px;
+    top: 27px;
     color: rgba(255,255,255, .4);
 }
 
@@ -88,32 +88,23 @@ body {
 }
 
 /* *MAIN CONTENT AREA* */
-/* Jumbotron */
+/* Jumbotrons */
 .jumbotron,
 .jumbotron2 {
     position: relative;
 }
 
-.jumbo-img {
-    width: 100vw;
-    height: 60vh;
-}
-
+.jumbo-img,
 .jumbo2-img {
     width: 100vw;
     height: 60vh;
 }
 
-.jumbo-text {
+.jumbo-text,
+.jumbo2-text {
     position: absolute;
     top: 70px;
     left: 50px;
-}
-
-.jumbo2-text {
-    position: absolute;
-    bottom: 70px;
-    right: 50px;
 }
 
 .jumbo-text h1,
@@ -123,8 +114,7 @@ body {
     margin-bottom: 10px;
 }
 
-.jumbo-text .purple-button,
-.jumbo2-text .purple-button {
+.purple-button {
     padding: 10px 20px;
     background: rgba(79,12,78, .6);
     color: #fff;
@@ -132,15 +122,19 @@ body {
     border: 1px solid #fff;
     border-radius: 5px;
     margin-top: 20px;
-    transition: background, .2s;
+    transition: .2s;
     cursor: pointer;
 }
 
 .purple-button:hover {
     background: #4f0c4e;
+    transform: scale(1.1);
+
 }
 
 /* Films and series results area */
+
+/* Gestione generale main area  */
 .film-area,
 .series-area{
     margin-bottom: 50px;
@@ -159,16 +153,14 @@ body {
     background: #fff;
     padding: 5px;
 }
-
-.film-results-list,
-.series-results-list {
+/* Styling cards (posizione) */
+.items-results-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-
-.film-result-item,
-.series-result-item {
+/* Styling singola card */
+.result-item {
     position: relative;
     flex-basis: 250px;
     margin: 15px;
@@ -179,8 +171,7 @@ body {
     transition: transform .2s;
 }
 
-.film-result-item:hover,
-.series-result-item:hover {
+.result-item:hover {
     transform: scale(1.1);
 }
 
@@ -211,29 +202,6 @@ body {
     transition: transform .2s;
 }
 
-.item.overlay::after {
-    display: block;
-    height: 25px;
-    content: 'Click to read more...';
-    color: rgba(249, 249, 249, .4);
-  }
-
-.film-basic-info h3,
-.film-basic-info h4,
-.film-basic-info p,
-.series-basic-info h3,
-.series-basic-info h4,
-.series-basic-info p {
-    margin: 10px;
-}
-
-.film-basic-info h4,
-.film-basic-info p,
-.series-basic-info h4,
-.series-basic-info p {
-    color: rgba(255,255,255,.6);
-}
-
 .poster-container {
     min-height: 290px;
 }
@@ -242,9 +210,19 @@ body {
     width: 185px;
 }
 
-.film-basic-info h3,
-.series-basic-info h3 {
+.item-basic-info h3,
+.item-basic-info h4,
+.item-basic-info p {
+    margin: 10px;
+}
+
+.item-basic-info h3 {
     padding: 10px;
+}
+
+.item-basic-info h4,
+.item-basic-info p {
+    color: rgba(255,255,255,.6);
 }
 
 .flag {

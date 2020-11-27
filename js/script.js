@@ -41,22 +41,22 @@ const boloflix = new Vue ({
                         console.log(error);
                     });
             }
-          },
+        },
         findTvSeries() {
             if (this.search) {
                 axios.get('https://api.themoviedb.org/3/search/tv',{
-                        params: {
+                    params: {
                             api_key: 'd941bb4acf4132519ffe2318bdce1523',
                             query: this.search
-                        }
-                    })
-                .then( result => {
-                    this.series = result.data.results;
+                    }
                 })
+                    .then( result => {
+                        this.series = result.data.results;
+                    })
 
-                .catch( error => {
-                    console.log(error);
-                });
+                    .catch( error => {
+                        console.log(error);
+                    });
             }
         },
         // La votazione originale fornita dall'API è decimale su una scala da 1/10, quello che voglio ottenere è la votazione su 5 anzichè su dieci punti ed intera anzichè decimale (arrotondata per eccesso)
@@ -72,7 +72,5 @@ const boloflix = new Vue ({
             return `./img/${language}.png`
         }
     }
-
-
 
 }); 

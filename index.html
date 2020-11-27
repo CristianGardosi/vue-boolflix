@@ -16,7 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    <title>BOOLFLIX PROJECT</title>
+    <title>PURPLEFLIX PROJECT</title>
 </head>
 
 <body>
@@ -59,11 +59,11 @@
                         DALLA TUA RICERCA 
                         <i class="fas fa-arrow-down"></i>
                     </h2>
-                    <ul class="film-results-list">
+                    <ul class="items-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="film in films"
-                        class="film-result-item">
-                            <div class="film-basic-info">
+                        class="result-item">
+                            <div class="item-basic-info">
                                 <div class="poster-container">
                                     <div class="cover">
                                         <img 
@@ -106,8 +106,11 @@
                             </div>
                             <!-- Gestione descrizione in overlay al passaggio sulla card col cursore -->
                             <div class="item-overlay">
-                                <h4>
+                                <h4 v-if="film.overview">
                                     {{ film.overview }}
+                                </h4>
+                                <h4 v-else>
+                                    Descrizione non disponibile per questo titolo
                                 </h4>
                             </div>
                         </li>
@@ -129,11 +132,11 @@
                         DALLA TUA RICERCA 
                         <i class="fas fa-arrow-down"></i>
                     </h2>
-                    <ul class="series-results-list">
+                    <ul class="items-results-list">
                         <!-- Looppo nell'array popolato tramite API alla ricerca di elementi che matchano con i caratteri digitati ed inviati dall'utente. In caso di ricerca a buon fine inserisco le info per ciascun risultato a schermo prendendole dai data della API -->
                         <li v-for="serie in series"
-                        class="series-result-item">
-                            <div class="series-basic-info">
+                        class="result-item">
+                            <div class="item-basic-info">
                                 <div class="poster-container">
                                     <div class="cover">
                                         <img 
@@ -184,10 +187,11 @@
                     </ul>
                 </section>
             </div>
+            <!-- Schermata di accesso/login visualizzata prima di una ricerca da parte dell'utente che da esito positivo -->
             <div v-else class="initial-page">
                 <img class="purple-locandine" src="./img/locandine.png" alt="">
                 <button class="purple-button-giant">
-                    Iscriviti a purpleflix
+                    Abbonati o accedi a purpleflix
                 </button>
             </div>
         </main>
