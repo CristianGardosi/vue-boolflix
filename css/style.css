@@ -9,10 +9,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     background: radial-gradient(circle, rgba(62,62,62,1) 0%, rgba(0,0,0,1) 100%);
     color: #fff;
+    min-height: 100vh;
 }
 
 /* !LAYOUT */
-
 /* *HEADER* */
 .header-container {
     position: fixed;
@@ -25,10 +25,6 @@ body {
     align-items: center;
     padding: 20px 50px;
     background: radial-gradient(circle, rgba(79,12,78,.7) 37%, rgba(0,0,0,.7) 100%);
-}
-
-.header-container:focus {
-    background: radial-gradient(circle, rgba(79,12,78,1) 37%, rgba(0,0,0,1) 100%);
 }
 
 .logo {
@@ -67,10 +63,6 @@ body {
 }
 
 /* *INITIAL PAGE* */
-.initial-page {
-    background: radial-gradient(circle, rgba(62,62,62,1) 0%, rgba(0,0,0,1) 100%);
-}
-
 .initial-page .purple-locandine {
     width: 1000px;
     position: absolute;
@@ -101,17 +93,18 @@ body {
 }
 
 /* *MAIN CONTENT AREA* */
-/* Jumbotrons */
-.jumbotron{
-margin-top: 80px;
-}
+
+/* Jumbotrons (initial and final part of the main page) */
+
 
 .jumbotron,
 .jumbotron2 {
     position: relative;
 }
-
-.jumbo-img,
+.jumbo-img{
+    width: 100vw;
+    height: 65vh;
+}
 .jumbo2-img {
     width: 100vw;
     height: 60vh;
@@ -119,13 +112,13 @@ margin-top: 80px;
 
 .jumbo-text {
     position: absolute;
-    top: 70px;
+    top: 110px;
     left: 50px;
 }
 
 .jumbo2-text {
     position: absolute;
-    bottom: 70px;
+    bottom: 110px;
     right: 50px;
 }
 
@@ -173,7 +166,7 @@ margin-top: 80px;
 
 /* Films and series results area */
 
-/* Gestione generale main area  */
+/* Gestione generale stili area  */
 .film-area,
 .series-area{
     margin-bottom: 50px;
@@ -192,7 +185,7 @@ margin-top: 80px;
     background: #fff;
     padding: 5px;
 }
-/* Styling cards (posizione) */
+
 .items-results-list {
     display: flex;
     flex-wrap: wrap;
@@ -236,10 +229,7 @@ margin-top: 80px;
     opacity: 1;
 }
 
-.item-overlay p {
-    font-size: 16px;
-    transition: transform .2s;
-}
+
 
 .poster-container {
     min-height: 290px;

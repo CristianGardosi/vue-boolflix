@@ -7,7 +7,7 @@
      // ********************************************* \\
 
 const boloflix = new Vue ({
-    el: "#boloflix",
+    el: "#purpleflix",
     data: {
         // Inizializzo search nei data e bindo il suo valore all'input text per la ricerca dei titoli (V-MODEL)
         search: '',
@@ -59,6 +59,10 @@ const boloflix = new Vue ({
                     });
             }
         },
+        // Utility per pescare il poster all'interno dell'API e successivamente bindarlo all'img src nell'HTML
+        getPoster(poster){
+            return `http://image.tmdb.org/t/p/w185/${poster}`
+        },
         // La votazione originale fornita dall'API è decimale su una scala da 1/10, quello che voglio ottenere è la votazione su 5 anzichè su dieci punti ed intera anzichè decimale (arrotondata per eccesso)
         StarRating(num) {
             return Math.ceil(num / 2);
@@ -67,7 +71,7 @@ const boloflix = new Vue ({
         isAFlaggedLanguage(language){
             return this.languageFlagsImg.includes(language) 
         },
-
+        // Inserimento immagine bandierina se presente nell'array
         getFlag(language) {
             return `./img/${language}.png`
         }

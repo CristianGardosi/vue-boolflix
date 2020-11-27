@@ -22,7 +22,7 @@
 <body>
 
     <!-- Main app id container (VUE) -->
-    <div id="boloflix">
+    <div id="purpleflix">
         <!-- App HEADER -->
         <header class="header">
             <div class="header-container">
@@ -68,7 +68,7 @@
                                     <div class="cover">
                                         <img 
                                         v-if="film.poster_path"
-                                        v-bind:src="`http://image.tmdb.org/t/p/w185/${film.poster_path}`" alt="poster found"
+                                        v-bind:src="getPoster(film.poster_path)" alt="poster found"
                                         >
                                         <img class="alternative-poster"
                                         v-else
@@ -106,12 +106,12 @@
                             </div>
                             <!-- Gestione descrizione in overlay al passaggio sulla card col cursore -->
                             <div class="item-overlay">
-                                <h4 v-if="film.overview">
+                                <h5 v-if="film.overview">
                                     {{ film.overview }}
-                                </h4>
-                                <h4 v-else>
+                                </h5>
+                                <h5 v-else>
                                     Descrizione non disponibile per questo titolo
-                                </h4>
+                                </h5>
                             </div>
                         </li>
                     </ul>
@@ -133,7 +133,7 @@
                                     <div class="cover">
                                         <img 
                                         v-if="serie.poster_path"
-                                        v-bind:src="`http://image.tmdb.org/t/p/w185/${serie.poster_path}`" alt="poster found"
+                                        v-bind:src="getPoster(serie.poster_path)" alt="poster found"
                                         >
                                         <img class="alternative-poster"
                                         v-else
@@ -144,9 +144,9 @@
                                 <h3>
                                 {{ serie.name }}
                                 </h3>
-                                <h4>
+                                <h5>
                                 Nome Originale: {{ serie.original_name }}
-                                </h4>
+                                </h5>
                                 <!-- Gestione lingua -->
                                 <p>
                                     <span>Lingua originale:</span>
@@ -171,9 +171,12 @@
                             </div>
                             <!-- Gestione descrizione in overlay al passaggio sulla card col cursore -->
                             <div class="item-overlay">
-                                <h4>
+                                <h5 v-if="serie.overview">
                                     {{ serie.overview }}
-                                </h4>
+                                </h5>
+                                <h5 v-else>
+                                    Descrizione non disponibile per questo titolo
+                                </h5>
                             </div>
                         </li>
                     </ul>
